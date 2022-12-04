@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Товары и точка</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header__menu">
+                <div class="header__menu-line"></div>
+                <div class="header__menu-line"></div>
+                <div class="header__menu-line"></div>
+            </div>
+            <h1>товары<br> и точка</h1>
+        </div>
+        <div class="header__search">
+            <input type="search" id="search" placeholder="Я ищу.."/>
+            <img class="header__search-icon" src="img/Search.svg" alt="Поиск">
+        </div>
+        <div class="container">
+            <div class="header__manage">
+                <img src="img/Exclude.svg" alt="Профиль"> <br>
+                <span class="header__manage-sub">Профиль</span>
+            </div>
+            <div class="header__manage">
+                <img src="img/Vector.svg" alt="Корзина" id="bucket"> <br>
+                <div id="bucket-counter"></div>
+                <span>Корзина</span>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="manage">
+            <h2>Корзина</h2>
+            <div class="manage__bucket">
+                <div class="manage__bucket__control" id="avail-control">
+                    <div>
+                        <input type="checkbox" id="take-all" onclick="addAllCheck()">
+                        <label for="take-all">Выбрать все</label>
+                    </div>
+                    <img onclick="dropAvail()" class="dropbtn" src="img/Arrow.svg" alt="Свернуть/развернуть" id="dropbtn-avail">
+                </div>
+                <hr>
+                <div class="dropdown">
+                    <div id="available_list" class="dropdown-content">
+                    </div>
+                </div>
+                <div class="manage__bucket__control" id="notavail-control">
+                    <span id="notavail-list-head"></span>
+                    <img onclick="dropNotAvail()" class="dropbtn" src="img/Arrow.svg" alt="Свернуть/развернуть" id="dropbtn-notavail">
+                </div>
+                <hr>
+                <div class="dropdown">
+                    <div id="notavailable_list" class="dropdown-content">
+                    </div>
+                </div>
+            </div>
+            <div class="block">
+                <div class="block__header">
+                    <h3>Cпособ доставки</h3>
+                    <span class="change-button" id="delivery" onclick="showBlock('popUpDelivery')">Изменить</span>
+                </div>
+                    <table id="delivery__content">
+                        <tr>
+                            <th></th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>Стоимость доставки</th>
+                            <td></td>
+                        </tr>
+                    </table>
+                <span id="delivery__subscription"></span>
+            </div>
+            <div class="block">
+                <div class="block__header">
+                    <h3>Cпособ оплаты</h3>
+                    <span class="change-button" id="payment" onclick="showBlock('popUpPayment')">Изменить</span>
+                </div>
+                <div id="payment__content"></div>
+                <span style="color: #A0A0A4;">Спишем оплату с карты при получении</span>
+            </div>
+            <div class="block">
+                <h3>Получатель</h3>
+                <form id="recipient">
+                    <label>
+                        <span class="form__name">Имя</span>
+                        <input type="text" id="name" name="name" required placeholder="Имя">
+                        <span class="form__valid">Укажите имя</span>
+                    </label>
+                    <label>
+                        <span class="form__name">Фамилия</span>
+                        <input type="text" id="lastName" name="lastName" required placeholder="Фамилия">
+                        <span class="form__valid">Укажите фамилию</span>
+                    </label>
+                    <div class="break"></div>
+                    <label>
+                        <span class="form__name">Почта</span>
+                        <input type="email" id="email" name="email" required placeholder="Почта">
+                        <span class="form__valid">Укажите почту</span>
+                    </label>
+                    <label>
+                        <span class="form__name">Телефон</span>
+                        <input class="tel" type="tel" id="phone" name="phone" placeholder="Телефон" required>
+                        <span class="form__valid">Укажите телефон</span>
+                    </label>
+                    <label>
+                        <span class="form__name">ИНН</span>
+                        <input type="number" id="INN" name="INN" maxlength="10"
+                               oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                               required placeholder="ИНН">
+                        <span class="form__valid">Укажите ИНН</span><br>
+                        <span class="INN__description">Для таможенного оформления</span>
+                    </label>
+                </form>
+            </div>
+        </div>
+        <div class="buying">
+            <div class="buying__content">
+                <div class="buying__content-sum" id="sum">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div id="sum-delivery"></div>
+                <div id="sum-payment"></div>
+                <div id="sum-check">
+                    <input type="checkbox" id="sum-checkbox" onchange="checkPay()">
+                    <label for="sum-checkbox">Списать оплату сразу</label><br>
+                    <span>Спишем оплату с карты при получении</span>
+                </div>
+                <button id="sum-button" onclick="checkForm()">Заказать</button>
+                <div class="sum-subscription">
+                    <img src="img/Swoosh_black.svg" alt=""/>
+                    <p>Соглашаюсь <u style="cursor: pointer">с правилами пользования торговой площадкой и возврата</u></p>
+                </div>
+            </div>
+        </div>
+        <div id="popUpDelivery" class="popup-window">
+            <div class="popup-window__header">
+                <h5>Способ доставки</h5>
+                <div class="cross" id="popUpDelivery-close"></div>
+            </div>
+            <div class="popup-window__buttons">
+                <button class="popup-window__choice" onclick="document.getElementById('address').remove(); firstElement = true; renderPVZList();">В пункт выдачи</button>
+                <button class="popup-window__choice" onclick="document.getElementById('PVZ').remove(); firstElement = true; renderAddressList();">Курьером</button>
+            </div>
+            <h6>Мои адреса</h6>
+        </div>
+        <div id="popUpPayment" class="popup-window card">
+            <div class="popup-window__header">
+                <h5>Способ оплаты</h5>
+                <div class="cross" id="popUpPayment-close"></div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <span>© 2022  ООО «Товары и точка»</span>
+    </footer>
+</body>
+<script src="person.js"></script>
+<script src="products.js"></script>
+<script src="bucket.js"></script>
+<script src="delivery.js"></script>
+<script src="payment.js"></script>
+<script src="recipient.js"></script>
+<script src="calculation.js"></script>
+</html>
