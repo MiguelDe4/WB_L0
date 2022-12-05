@@ -212,6 +212,10 @@ label:before{
     color: white;
 }
 
+.boxsize{
+    display: none;
+}
+
 input:checked + label:before{
     content: url("img/Swoosh.svg");
     background-color: #CB11AB;
@@ -967,7 +971,7 @@ input::-webkit-inner-spin-button {
     position: relative;
 }
 
-/*Header*/
+/*Footer*/
 
 footer{
     height: 64px;
@@ -982,6 +986,10 @@ footer span{
     line-height: 16px;
     text-align: center;
     color: rgba(255, 255, 255, 0.7);
+}
+
+nav{
+    display: none;
 }
 
 @media screen and (max-width: 1080px) and (min-width: 700px){
