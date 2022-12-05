@@ -12,6 +12,7 @@ body{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    gap: 20px;
 }
 
 h1{
@@ -131,7 +132,7 @@ header{
     position: relative;
     right: 45px;
     opacity: 0.2;
-    z-index: 10;
+    z-index: 2;
     cursor: pointer;
 }
 
@@ -153,7 +154,7 @@ header{
     right: 5px;
 }
 
-#bucket-counter{
+.bucket__counter{
     display: none;
     position: absolute;
     width: 16px;
@@ -188,6 +189,7 @@ main{
 
 input[type="checkbox"]{
     display: none;
+
 }
 
 label{
@@ -514,7 +516,7 @@ hr{
 .icon-green{
     margin-left: 2px;
     margin-right: 6px;
-    bottom: 2px;
+    bottom: -1px;
     position: relative;
     display: inline-block;
     width: 20px;
@@ -551,11 +553,11 @@ hr{
     width: 500px;
     height: 408px;
     left: calc(50% - 500px/2);
-    top: calc(50% - 408px/2 - 8px);
+    bottom: 0;
     background: #FFFFFF;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     border-radius: 16px;
-    z-index: 10;
+    z-index: 50;
     padding: 16px 24px 24px;
 }
 
@@ -917,6 +919,17 @@ input::-webkit-inner-spin-button {
     margin-right: 8px;
 }
 
+.subscription{
+    display: flex;
+    justify-content: left;
+}
+
+.subscription div{
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+}
+
 #sum-check{
     margin-top: 12px;
     background: #F6F6FA;
@@ -945,13 +958,13 @@ input::-webkit-inner-spin-button {
 .sum-subscription{
     margin-top: 12px;
     display: flex;
-    justify-content: space-between;
+    justify-content: left;
+
 }
 
 .sum-subscription img{
     margin-right: 10px;
     position: relative;
-    top: -20px;
 }
 
 /*Header*/
@@ -969,5 +982,284 @@ footer span{
     line-height: 16px;
     text-align: center;
     color: rgba(255, 255, 255, 0.7);
+}
 
+@media screen and (max-width: 1080px) and (min-width: 700px){
+    main{
+        display: block;
+    }
+    .buying{
+        position: relative;
+        padding: 0 24px 24px;
+        margin-right: 24px;
+    }
+    .buying__content{
+        width: 100%;
+        box-shadow: none;
+    }
+    .delivery-price-block{
+        justify-content: left;
+    }
+    .icon-green-sum{
+        width: 20px;
+        top: 1px;
+    }
+    .sum-subscription{
+        justify-content: left;
+    }
+    .sum-subscription img{
+        top: 0;
+    }
+}
+
+@media screen and (max-width: 699px) and (min-width: 0) {
+
+    .header__manage{
+        display: none;
+    }
+
+    main{
+        display: block;
+        /*gap: 0;*/
+        padding: 0;
+        width: 100%;
+    }
+
+    h2{
+        margin-left: 16px;
+    }
+
+    h4{
+        -webkit-line-clamp: 2;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .manage__bucket{
+        margin-right: 16px;
+        margin-left: 16px;
+    }
+
+    .product__panel{
+        display: block;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .product__panel:last-of-type{
+        border-bottom: none;
+    }
+
+    .product__panel-check label{
+        position: relative;
+        z-index: 1;
+        left: 4px;
+        top: 4px;
+
+    }
+
+    .product__panel img{
+        position: absolute;
+        width: 80px;
+        height: 106px;
+    }
+
+    .product__panel-description{
+        margin-left: 60px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        height: 88px;
+    }
+
+    .price__block{
+        display: inline-block;
+        position: relative;
+        text-align: left;
+        top: -175px;
+        left: 95px;
+        width: calc(100% - 100px);
+    }
+
+    .price__block-curr{
+        margin-right: 5px;
+    }
+
+    .price__block div:first-of-type{
+        display: inline-block;
+    }
+
+    .info__content{
+        display: none;
+    }
+
+    .product__panel-card{
+        width: 100%;
+    }
+
+    .product__panel-price{
+        display: block;
+    }
+
+    .product__panel-price__manage{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .price__icons{
+        margin-top: 0;
+    }
+
+    .product__panel-description__add{
+        margin: 0;
+    }
+
+    .product__panel-description__add span:nth-of-type(2){
+        display: none;
+    }
+
+    label:before{
+        background-color: white;
+    }
+
+    .info{
+        display: none;
+    }
+
+    .mob{
+        display: none;
+    }
+
+    .mob-show{
+        display: block;
+    }
+
+    .boxsize{
+        width: 22px;
+        height: 22px;
+        background: #ffffff;
+        border-radius: 6px;
+        text-align: center;
+        line-height: 20px;
+        z-index: 1;
+        position: relative;
+        top: 56px;
+        left: 4px;
+    }
+
+    #notavailable_list h4{
+        margin-left: 40px;
+    }
+
+    .notavailble-icons{
+        margin: 0;
+    }
+
+    .buying{
+        display: block;
+        width: 100%;
+        position: unset;
+    }
+    .buying__content{
+        width: unset;
+        display: block;
+        background: none;
+        box-shadow: none;
+    }
+
+    header{
+        height: 56px;
+        justify-content: space-around;
+        padding: 0 10px;
+    }
+
+    .header__menu{
+        border: none;
+        padding-top: 9px;
+        margin: 0;
+    }
+
+    .header__menu div:nth-of-type(3){
+        width: 18px;
+    }
+
+    .header__menu-line{
+        height: 3px;
+    }
+
+    .header__search{
+        justify-content: center;
+        margin: 0;
+    }
+
+    .container{
+        width: 48px;
+    }
+
+    .block{
+        margin-left: 0px;
+    }
+
+    th{
+        display: table-row-group;
+    }
+
+    td{
+        display: table-row-group;
+    }
+    .icon-green{
+        width: 26px;
+    }
+    .delivery-price-block{
+        justify-content: left;
+    }
+    .icon-green-sum{
+        bottom: 5px;
+    }
+    .delivery-price-block{
+        background-color: #F0ECF4;
+    }
+    #sum-check{
+        background-color: #F0ECF4;
+    }
+    .popup-window{
+        position: absolute;
+        top: unset;
+        bottom: -700px;
+        left: 0;
+        width: calc(100% - 48px);
+        height: calc(100vh - 37px);
+        border-radius: 0;
+    }
+    .popup-window__button{
+        position: fixed;
+        top: calc(100vh - 50px);
+        width: calc(100% - 48px);
+
+    }
+    nav{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 56px;
+        background-color: white;
+        position: sticky;
+        bottom: 0;
+        box-shadow: 0 -0.5px 0 rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(2px);
+    }
+
+    .bucket__counter{
+        position: absolute;
+        top: unset;
+        right: unset;
+        bottom: 33px;
+        margin-left: 15px;
+        font-weight: 700;
+        font-size: 10px;
+        line-height: 16px;
+        color: #FFFFFF;
+        text-align: center;
+    }
 }

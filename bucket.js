@@ -2,6 +2,7 @@
 const avail = document.getElementById('available_list')
 const bucket = document.getElementById('bucket-counter')
 const notAvail = document.getElementById('notavailable_list')
+const bucketNav = document.getElementById('bucket-counter-nav')
 
 let sumProducts = [];
 let bucketCount = 0;
@@ -53,6 +54,8 @@ function bucketCounter(n){
     if (n > 0){
         bucket.style.display = 'block';
         bucket.innerHTML = n
+        bucketNav.style.display = 'block';
+        bucketNav.innerHTML = n
     } if (n === products.length){
         let block = document.getElementById('notavail-control');
         block.classList.toggle('hide')
@@ -61,6 +64,8 @@ function bucketCounter(n){
         let block = document.getElementById('avail-control');
         bucket.style.display = 'none';
         bucket.innerHTML = "";
+        bucketNav.style.display = 'none';
+        bucketNav.innerHTML = "";
         block.classList.toggle('hide')
         block.nextElementSibling.classList.toggle('hide')
     }
@@ -75,6 +80,7 @@ function renderAvailable(product){
         '               <div class="product__panel-check">' +
         '                   <input type="checkbox" id="'+product.id+'-check" onclick="addCheck(id)">' +
         '                   <label for="'+product.id+'-check"></label>' +
+        '                   <span id="'+  product.id +'-size"></span>' +
         '               </div>' +
         '               <img src="'+ product.photo +'" alt="'+product.name+'">' +
         '               <div class="product__panel-description">' +
@@ -83,7 +89,7 @@ function renderAvailable(product){
         '                   <div class="dropdown">' +
         '                       <span>'+product.location+'</span>' +
         '                       <br>' +
-        '                       <span>'+product.seller+'</span>' +
+        '                       <span class="mob">'+product.seller+'</span>' +
         '                       <span class="info" id="'+product.id+'-seller-info" onmouseover="popupInfo(id)" onmouseout="popupInfo(id)">i</span>' +
         '                       <div class="info__content" id="'+product.id+'-seller-info-content">' +
         '                           <span><b>'+seller+'</b></span><br>' +
@@ -123,7 +129,7 @@ function renderPrice(product){
         '   </div>' +
         '</div>'+
         '<div class="price__block">' +
-        '   <span id="'+product.id+'-sum" class="price__block-disprice">'+parseInt(disprice).toLocaleString()+'</span><span class="price__block-curr"> сом</span><br>' +
+        '   <span id="'+product.id+'-sum" class="price__block-disprice">'+parseInt(disprice).toLocaleString()+'</span><span class="price__block-curr"> сом</span><br class="mob">' +
         '   <div id="'+product.id+'-price-info" onmouseover="popupInfo(id)" onmouseout="popupInfo(id)">' +
         '       <span style="font-weight: 400; font-size: 13px">'+parseInt(price).toLocaleString()+'</span><span style="font-weight: 400; font-size: 13px"> сом</span>' +
         '   </div>' +
@@ -195,6 +201,7 @@ function addDescription(product){
     const description = document.getElementById(product.id+'-description')
     let spanColor = document.createElement('span');
     let spanSize = document.createElement('span');
+    let boxSize = document.getElementById(product.id+'-size')
     if (product.color){
         spanColor.innerHTML = 'Цвет: '+ product.color;
         description.append(spanColor);
@@ -202,6 +209,8 @@ function addDescription(product){
     if (product.size){
         spanSize.innerHTML = 'Размер: '+ product.size;
         description.append(spanSize);
+        boxSize.innerHTML = product.size
+        boxSize.classList = 'boxsize mob-show'
     }
 }
 

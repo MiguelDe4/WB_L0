@@ -28,11 +28,19 @@ function showBlock(id) {
         closeBlock(id)
     };
 
+    const screen = document.documentElement.clientWidth
+
     cross.onclick = function () {
         closeBlock(id)
     };
 
-    modalWin.scrollIntoView({block: "center", behavior: "smooth"});
+    if (screen > 699){
+        modalWin.scrollIntoView({block: "center", behavior: "smooth"});
+    }else {
+        modalWin.scrollIntoView({block: "center"});
+    }
+    let body = document.body
+    body.style.overflow = 'hidden'
 }
 
 function closeBlock(id){
@@ -40,6 +48,8 @@ function closeBlock(id){
     let modalWin = document.getElementById(id);
     darkLayer.parentNode.removeChild(darkLayer);
     modalWin.style.display = 'none';
+    let body = document.body
+    body.style.overflow = 'unset'
     return false;
 }
 

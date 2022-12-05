@@ -29,11 +29,11 @@ function calculate(){
 
 function renderDeliverySum(){
     let block = document.getElementById('sum-delivery')
-    block.innerHTML = '<div class="block__header">' +
+    block.innerHTML = '<div class="block__header mob">' +
         '   <span class="block__header-title">'+ deliveryType() +'</span> <img src="img/Pencil.svg" alt="" onclick="showBlock(\'popUpDelivery\')">' +
         '</div>' +
-        '<p>'+ destinationSum +'</p>' +
-        '<span class="time">'+ getTimeDeliveryTime() +'</span>' +
+        '<p class="mob">'+ destinationSum +'</p>' +
+        '<span class="time mob">'+ getTimeDeliveryTime() +'</span>' +
         '<div class="delivery-price-block">' +
         '   <div class="icon-green-sum"><div><img src="img/Swoosh_green.svg" alt="галочка" style="width: 11px"></div></div><div> Обратная доставка товаров на склад при отказе — <span id="free-sum" onmouseover="popupInfo(id)" onmouseout="popupInfo(id)">бесплатно</span></div>' +
         '        <div class="info__content" id="free-sum-content" style="width: 290px; right: 40px; margin-top: 40px"><p>Если товары вам не подойдут, мы вернем их обратно на склад — это бесплатно</p></div>' +
