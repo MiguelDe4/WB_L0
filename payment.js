@@ -3,7 +3,7 @@ let firstCard = true
 let cardSum
 
 function renderCard(card){
-    document.getElementById('payment__content').innerHTML = '<img src="'+ card.card +'" alt="система оплаты"/>' + card.number
+    document.getElementById('payment__content').innerHTML = '<img src="'+ card.card +'" alt="система оплаты"/>' + '<span>'+ card.number +'</span>'
     cardSum = document.getElementById('payment__content').innerHTML
     renderPaymentSum()
 }

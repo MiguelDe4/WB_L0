@@ -35,9 +35,12 @@ window.addEventListener("DOMContentLoaded", function() {
 
     let form = document.getElementById('recipient')
     for (let i = 0; i < form.childElementCount; i++){
-        let label = form.children[i]
-        if (label.localName === 'label'){
-            label.children[1].addEventListener("keyup", () => showTitle(label.children[1]))
+        let div = form.children[i]
+        for (let k = 0; k < div.childElementCount; k++){
+            let label = div.children[k]
+            if (label.localName === 'label'){
+                label.children[1].addEventListener("keyup", () => showTitle(label.children[1]))
+            }
         }
     }
 
@@ -192,8 +195,9 @@ function checkForm(){
     let flag = true
     let flagFlags = true
     for (let i = 0; i < form.childElementCount; i++){
-        if (i !== 2) {
-            let check = form.children[i].children[1]
+        let div = form.children[i]
+            for (let k = 0; k < div.childElementCount; k++){
+            let check = div.children[k].children[1]
             if (!check.value) {
                 flag = false;
                 check.nextElementSibling.style.display = 'inline-block'

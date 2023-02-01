@@ -28,11 +28,19 @@ function showBlock(id) {
         closeBlock(id)
     };
 
+    const screen = document.documentElement.clientWidth
+
     cross.onclick = function () {
         closeBlock(id)
     };
 
-    modalWin.scrollIntoView({block: "center", behavior: "smooth"});
+    if (screen > 699){
+        modalWin.scrollIntoView({block: "center", behavior: "smooth"});
+    }else {
+        modalWin.scrollIntoView({block: "center"});
+    }
+    let body = document.body
+    body.style.overflow = 'hidden'
 }
 
 function closeBlock(id){
@@ -40,6 +48,8 @@ function closeBlock(id){
     let modalWin = document.getElementById(id);
     darkLayer.parentNode.removeChild(darkLayer);
     modalWin.style.display = 'none';
+    let body = document.body
+    body.style.overflow = 'unset'
     return false;
 }
 
@@ -52,19 +62,19 @@ function renderDelivery(destination){
     }
     if (type === 'PVZ'){
         deliveryInfo.firstElementChild.firstElementChild.firstElementChild.innerHTML = 'Пункт выдачи'
-        deliveryInfo.firstElementChild.firstElementChild.lastElementChild.innerHTML = destination.address + '<br>' + ratingIcon + '<span> '+destination.grade+'</span> <span>'+destination.working_hours+'</span>'
+        deliveryInfo.firstElementChild.firstElementChild.lastElementChild.innerHTML = destination.address + '<br>' + ratingIcon + '<span> '+destination.grade+'</span> <span class="work_hours">'+destination.working_hours+'</span>'
         destinationSum = destination.address
     }
     if (person["delivery-cost"] === 'free'){
         deliveryInfo.children[0].children[1].children[1].innerHTML = 'Бесплатно';
-        deliveryCost = 'Беслатно'
+        deliveryCost = 'Бесплатно'
         renderSubscription();
     }
 }
 
 function renderSubscription(){
     let sub = document.getElementById('delivery__subscription');
-    sub.innerHTML = '<div class="icon-green"><div><img src="img/Swoosh_green.svg" alt="галочка" style="width: 11px"></div></div><div style="display: inline-block"> Обратная доставка товаров на склад при отказе — <span id="free" onmouseover="popupInfo(id)" onmouseout="popupInfo(id)">бесплатно</span></div>' +
+    sub.innerHTML = '<img src="img/price%20shipping.svg" alt="галочка"><div style="display: inline-block; margin-left: 2px"> Обратная доставка товаров на склад при отказе — <span id="free" onmouseover="popupInfo(id)" onmouseout="popupInfo(id)">бесплатно</span></div>' +
         '<div class="info__content" id="free-content" style="width: 290px; left: 260px"><p>Если товары вам не подойдут, мы вернем их обратно на склад — это бесплатно</p></div>'
 }
 
