@@ -1210,6 +1210,18 @@ nav{
     }
 }
 
+@media screen and (max-width: 1250px) and (min-width: 1200px){
+    #recipient{
+        padding-right: 250px;
+    }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 700px){
+    #recipient{
+        padding-right: 0;
+    }
+}
+
 @media screen and (max-width: 699px) and (min-width: 0) {
 
     .header__manage{
@@ -1440,8 +1452,6 @@ nav{
     .notavailble-icons{
         top: -10px;
         left: -1px;
-=======
->>>>>>> c6c643eb0209afa1dc4096d3dd75301624c90b27
     }
 
     .product__panel-description__add span:nth-of-type(2){
