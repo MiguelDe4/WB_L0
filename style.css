@@ -140,7 +140,7 @@ header{
 }
 
 .header__search{
-    padding: 0 12px 0 30px;
+    padding: 0 11px 0 30px;
     display: flex;
     flex: 2;
 }
@@ -243,7 +243,6 @@ label:before{
     content: " ";
     display: inline-block;
     margin-right: 8px;
-    position: relative;
     text-align: center;
     text-indent: 0;
     width: 22px;
@@ -661,7 +660,7 @@ hr:nth-of-type(2){
     left: calc(50% - 500px/2);
     bottom: 0;
     background: #FFFFFF;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     border-radius: 16px;
     z-index: 50;
     padding: 16px 24px 24px;
@@ -1074,8 +1073,7 @@ input::-webkit-inner-spin-button {
 
 #sum-check{
     margin-top: 12px;
-    /* padding: 8px 8px 12px; */
-    padding: 0px 24px 0px 22px;
+    padding: 0 24px 0 22px;
 }
 
 #sum-check div{
@@ -1128,20 +1126,15 @@ input::-webkit-inner-spin-button {
     right: 56px;
     font-size: 13px;
     padding: 12px 24px 23px 78px;
+    margin-top: 12px;
+    justify-content: left;
 }
 
 .sum-subscription img{
     position: relative;
     margin-right: 9px;
+
 }
-/*.sum-subscription p{*/
-/*    width: 100%;*/
-/*    display: inline-block;*/
-/*    position: relative;*/
-/*    margin-left: 10px;*/
-/*    left: 23px;*/
-/*    font-size: 13px;*/
-/*}*/
 
 /*Footer*/
 
@@ -1190,13 +1183,41 @@ nav{
 
 @media screen and (max-width: 1029px) and (min-width: 0) {
 
+    main{
+        display: block;
+    }
+    .buying{
+        position: relative;
+        padding: 0 24px 24px;
+        margin-right: 24px;
+    }
+    .buying__content{
+        width: 100%;
+        box-shadow: none;
+    }
+    .delivery-price-block{
+        justify-content: left;
+    }
+    .icon-green-sum{
+        width: 20px;
+        top: 1px;
+    }
+    .sum-subscription{
+        justify-content: left;
+    }
+    .sum-subscription img{
+        top: 0;
+    }
+}
+
+@media screen and (max-width: 699px) and (min-width: 0) {
+
     .header__manage{
         display: none;
     }
 
     main{
         display: block;
-        /*gap: 200px;*/
         padding: 0;
         width: 100%;
     }
@@ -1232,6 +1253,10 @@ nav{
         letter-spacing: -0.004em;
     }
 
+    h2{
+        margin-left: 16px;
+    }
+
     h4{
         -webkit-line-clamp: 2;
         display: -webkit-box;
@@ -1264,8 +1289,7 @@ nav{
         position: relative;
         z-index: 1;
         left: 4px;
-        top: 2px;
-
+        top: 4px;
     }
 
     .product__panel img{
@@ -1416,6 +1440,8 @@ nav{
     .notavailble-icons{
         top: -10px;
         left: -1px;
+=======
+>>>>>>> c6c643eb0209afa1dc4096d3dd75301624c90b27
     }
 
     .product__panel-description__add span:nth-of-type(2){
@@ -1463,6 +1489,7 @@ nav{
         display: block;
         width: 100%;
         position: unset;
+        padding: 0;
     }
     .buying__content{
         width: unset;
@@ -1480,6 +1507,7 @@ nav{
     .header__menu{
         border: none;
         padding: 8px 0 0 0;
+        /*padding-top: 9px;*/
         margin: 0;
     }
 
@@ -1491,13 +1519,16 @@ nav{
 
     .header__menu-line{
         width: 22px;
+    }
+
+    .header__menu-line{
         height: 3px;
     }
 
     .header__search{
         justify-content: center;
         margin: 0;
-        padding: 0 15px 0 30px;
+        padding: 0 12px 0 2px
     }
 
     .change-button{
@@ -1533,6 +1564,14 @@ nav{
 
     .work_hours {
         margin-left: 8px;
+    }
+
+    .container{
+        width: 48px;
+    }
+
+    .block{
+        margin-left: 0px;
     }
 
     th{
@@ -1624,6 +1663,7 @@ nav{
     }
 
     .sum-subscription {
+        margin-top: -1px;
         padding: 12px 7px 23px 71px;
     }
 
@@ -1673,6 +1713,7 @@ nav{
         right: unset;
         bottom: 33px;
         margin-left: 18px;
+        margin-left: 15px;
         font-weight: 700;
         font-size: 10px;
         line-height: 16px;
